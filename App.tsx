@@ -1,7 +1,8 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
+import {SafeAreaView, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {Text} from './src/components/Text/Text';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -12,10 +13,7 @@ function App(): JSX.Element {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
+      <Text style={{fontFamily: 'Satoshi-Black'}}>oi</Text>
     </SafeAreaView>
   );
 }
