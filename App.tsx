@@ -2,6 +2,7 @@ import React from 'react';
 import {SafeAreaView, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {Button} from './src/components/Button/Button';
 import {Text} from './src/components/Text/Text';
 
 function App(): JSX.Element {
@@ -13,7 +14,10 @@ function App(): JSX.Element {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <Text style={{fontFamily: 'Satoshi-Black'}}>oi</Text>
+      <Text bold preset={'headingLarge'}>
+        oi
+      </Text>
+      <Button />
     </SafeAreaView>
   );
 }
