@@ -1,9 +1,11 @@
+import {ThemeProvider} from '@shopify/restyle';
 import React from 'react';
 import {SafeAreaView, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {Button} from './src/components/Button/Button';
 import {Text} from './src/components/Text/Text';
+import {theme} from './src/theme/Theme';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -13,12 +15,14 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <Text bold preset={'headingLarge'}>
-        oi
-      </Text>
-      <Button />
-    </SafeAreaView>
+    <ThemeProvider theme={theme}>
+      <SafeAreaView style={backgroundStyle}>
+        <Text bold preset={'headingLarge'}>
+          oi
+        </Text>
+        <Button />
+      </SafeAreaView>
+    </ThemeProvider>
   );
 }
 
