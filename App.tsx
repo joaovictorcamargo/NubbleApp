@@ -20,7 +20,7 @@ function App(): JSX.Element {
         <Text bold preset={'headingLarge'}>
           oi
         </Text>
-        <Button />
+        <Button title={'Oi'} />
       </SafeAreaView>
     </ThemeProvider>
   );
