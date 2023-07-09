@@ -29,7 +29,7 @@ export function Button({
       alignItems="center"
       justifyContent="center"
       borderRadius="s16"
-      // {...buttonPreset.container}
+      {...buttonPreset.container}
       {...touchableOpacityBoxProps}>
       {loading ? (
         <ActivityIndicator color={buttonPreset.content} />
