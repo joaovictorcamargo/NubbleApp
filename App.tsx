@@ -1,27 +1,47 @@
 import {ThemeProvider} from '@shopify/restyle';
 import React from 'react';
-import {SafeAreaView, useColorScheme} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
+import {Box} from './src/components/Box/Box';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {EyeOffIcon} from './src/assets/icons/eyeOffIcon';
 import {Button} from './src/components/Button/Button';
+import {Icon} from './src/components/Icon/Icon';
+import {Text} from './src/components/Text/Text';
+import {TextInput} from './src/components/TextInput/TextInput';
 import {theme} from './src/theme/Theme';
 
 function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
     <ThemeProvider theme={theme}>
-      <SafeAreaView style={backgroundStyle}>
-        <Button disabled title="Primary" />
-        <EyeOffIcon />
+      <SafeAreaView>
+        <View style={{paddingHorizontal: 24}}>
+          <Text marginBottom="s8" preset="headingLarge">
+            Olá
+          </Text>
+          <Text preset="paragraphLarge" mb="s40">
+            Digite seu e-mail e senha para entrar
+          </Text>
+
+          <Box mb="s20">
+            <TextInput
+              RightComponent={<Icon name="eyeOn" />}
+              errorMessage="mensagem de erro"
+              label="oi"
+              placeholder="Digite seu e-mail"
+            />
+          </Box>
+          <Box>
+            <TextInput label="oi" placeholder="Digite sua senha" />
+          </Box>
+
+          <Text color="primary" preset="paragraphSmall" bold mt="s10">
+            Esqueci minha senha
+          </Text>
+
+          <Button marginTop="s48" title="Entrar" />
+          <Button preset="outline" marginTop="s12" title="Criar uma conta" />
+        </View>
       </SafeAreaView>
     </ThemeProvider>
   );
 }
-
 export default App;

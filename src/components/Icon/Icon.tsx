@@ -17,8 +17,9 @@ import {Pressable} from 'react-native';
 // import {CheckRoundIcon} from '../../assets/icons/CheckRoundIcon';
 // import {ChevronRightIcon} from '../../assets/icons/ChevronRightIcon';
 // import {CommentIcon} from '../../assets/icons/CommentIcon';
-import {EyeOffIcon} from '../../assets/icons/eyeOffIcon';
 import {EyeOnIcon} from '../../assets/icons/EyeOnIcon';
+import {useAppTheme} from '../../hooks/useAppTheme';
+import {ThemeColors} from '../../theme/Theme';
 // import {FlashOffIcon} from '../../assets/icons/FlashOffIcon';
 // import {FlashOnIcon} from '../../assets/icons/FlashOnIcon';
 // import {HeartFillIcon} from '../../assets/icons/HeartFillIcon';
@@ -41,60 +42,32 @@ export interface IconBase {
 
 export interface IconProps {
   name: IconName;
-  color?: any;
+  color?: ThemeColors;
   size?: number;
   onPress?: () => void;
 }
 export function Icon({
-  //   name,
-  //   color = 'backgroundContrast',
-  //   size,
+  name,
+  color = 'backgroundContrast',
+  size,
   onPress,
 }: IconProps) {
-  //   const {colors} = useAppTheme();
-  //   const SVGIcon = iconRegistry[name];
+  const {colors} = useAppTheme();
+  const SVGIcon = iconRegistry[name];
 
   if (onPress) {
     return (
       <Pressable hitSlop={10} onPress={onPress}>
-        {/* <SVGIcon color={colors[color]} size={size} /> */}
+        <SVGIcon color={colors[color]} size={size} />
       </Pressable>
     );
   }
 
-  //   return <SVGIcon color={colors[color]} size={size} />;
+  return <SVGIcon color={colors[color]} size={size} />;
 }
 
 const iconRegistry = {
-  //   arrowLeft: ArrowLeftIcon,
-  //   arrowRight: ArrowRightIcon,
-  //   bell: BellIcon,
-  //   bellOn: BellOnIcon,
-  //   bookmark: BookmarkIcon,
-  //   bookmarkFill: BookmarkFillIcon,
-  //   camera: CameraIcon,
-  //   chat: ChatIcon,
-  //   chatOn: ChatOnIcon,
-  //   check: CheckIcon,
-  //   checkRound: CheckRoundIcon,
-  //   comment: CommentIcon,
-  //   chevronRight: ChevronRightIcon,
   eyeOn: EyeOnIcon,
-  eyeOff: EyeOffIcon,
-  //   flashOn: FlashOnIcon,
-  //   flashOff: FlashOffIcon,
-  //   heart: HeartIcon,
-  //   heartFill: HeartFillIcon,
-  //   home: HomeIcon,
-  //   homeFill: HomeFillIcon,
-  //   message: MessageIcon,
-  //   messageRound: MessageRoundIcon,
-  //   newPost: NewPostIcon,
-  //   profile: ProfileIcon,
-  //   profileFill: ProfileFillIcon,
-  //   search: SearchIcon,
-  //   settings: SettingsIcon,
-  //   trash: TrashIcon,
 };
 
 type IconType = typeof iconRegistry;
